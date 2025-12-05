@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+    <channel>
+      <title>Binyamin&#039;s Notes</title>
+      <link>https://https://bobona.github.io/notes/</link>
+      <description>Last 10 notes on Binyamin&#039;s Notes</description>
+      <generator>Quartz -- quartz.jzhao.xyz</generator>
+      <item>
+    <title>Expectation</title>
+    <link>https://https://bobona.github.io/notes/Knowledge/Mathematics/Courses/Probability/Expectation</link>
+    <guid>https://https://bobona.github.io/notes/Knowledge/Mathematics/Courses/Probability/Expectation</guid>
+    <description><![CDATA[ Recall, the expected value of a random variable X is E[X]=\sum_{x}^{}xp(x) if X is discrete and E[X]=\int_{-\infty}^{\infty}xf(x) \, dx if X is continuous If P\{ a\leq X\leq b \}=1 for some a and b then a\leq E[X]\leq b If X and Y have a joint probability mass function p(x,y) then E[g(X,Y)]=\sum_{y}... ]]></description>
+    <pubDate>Fri, 05 Dec 2025 20:43:00 GMT</pubDate>
+  </item><item>
+    <title>Probability</title>
+    <link>https://https://bobona.github.io/notes/Knowledge/Mathematics/Courses/Probability/</link>
+    <guid>https://https://bobona.github.io/notes/Knowledge/Mathematics/Courses/Probability/</guid>
+    <description><![CDATA[  ]]></description>
+    <pubDate>Fri, 05 Dec 2025 19:22:00 GMT</pubDate>
+  </item><item>
+    <title>Statistics</title>
+    <link>https://https://bobona.github.io/notes/Knowledge/Mathematics/Courses/Statistics/</link>
+    <guid>https://https://bobona.github.io/notes/Knowledge/Mathematics/Courses/Statistics/</guid>
+    <description><![CDATA[  ]]></description>
+    <pubDate>Fri, 05 Dec 2025 19:22:00 GMT</pubDate>
+  </item><item>
+    <title>Stochastic Processes</title>
+    <link>https://https://bobona.github.io/notes/Knowledge/Mathematics/Courses/Stochastic-Processes-and-Applications/</link>
+    <guid>https://https://bobona.github.io/notes/Knowledge/Mathematics/Courses/Stochastic-Processes-and-Applications/</guid>
+    <description><![CDATA[ Introduction. ]]></description>
+    <pubDate>Fri, 05 Dec 2025 19:22:00 GMT</pubDate>
+  </item><item>
+    <title>Home</title>
+    <link>https://https://bobona.github.io/notes/</link>
+    <guid>https://https://bobona.github.io/notes/</guid>
+    <description><![CDATA[ This site is a collection of technical notes, write ups, and other thoughts. I will be updating this irregularly. This is not a portfolio. ]]></description>
+    <pubDate>Fri, 05 Dec 2025 19:21:00 GMT</pubDate>
+  </item><item>
+    <title>Hypothesis Testing</title>
+    <link>https://https://bobona.github.io/notes/Knowledge/Mathematics/Courses/Statistics/Hypothesis-Testing</link>
+    <guid>https://https://bobona.github.io/notes/Knowledge/Mathematics/Courses/Statistics/Hypothesis-Testing</guid>
+    <description><![CDATA[ Hypothesis testing aims to choose between a null hypothesis H_{0} and an alternative hypothesis H_{1} A function of the observed data who dictates the outcome of our hypothesis is called a test statistic. ]]></description>
+    <pubDate>Fri, 05 Dec 2025 18:16:00 GMT</pubDate>
+  </item><item>
+    <title>Stochastic Differential Equations</title>
+    <link>https://https://bobona.github.io/notes/Knowledge/Mathematics/Courses/Stochastic-Processes-and-Applications/Stochastic-Differential-Equations</link>
+    <guid>https://https://bobona.github.io/notes/Knowledge/Mathematics/Courses/Stochastic-Processes-and-Applications/Stochastic-Differential-Equations</guid>
+    <description><![CDATA[ Consider a differential equation with changes at exponentially distributed intervals. ]]></description>
+    <pubDate>Fri, 05 Dec 2025 17:26:00 GMT</pubDate>
+  </item><item>
+    <title>Learning and Plasticity</title>
+    <link>https://https://bobona.github.io/notes/Knowledge/Computer-Science/Courses/Computational-Neuroscience/Learning-and-Plasticity</link>
+    <guid>https://https://bobona.github.io/notes/Knowledge/Computer-Science/Courses/Computational-Neuroscience/Learning-and-Plasticity</guid>
+    <description><![CDATA[ Hebbian plasticity Hebbian plasticity is a change in synaptic strength produced by a positive correlation between presynaptic and postsynaptic spikes The mechanisms generally depend on an increase in calcium concentration within the postsynaptic cell in the vicinity of the synapse, either through ca... ]]></description>
+    <pubDate>Fri, 05 Dec 2025 17:25:00 GMT</pubDate>
+  </item><item>
+    <title>Firing-Rate Models</title>
+    <link>https://https://bobona.github.io/notes/Knowledge/Computer-Science/Courses/Computational-Neuroscience/Firing-Rate-Models</link>
+    <guid>https://https://bobona.github.io/notes/Knowledge/Computer-Science/Courses/Computational-Neuroscience/Firing-Rate-Models</guid>
+    <description><![CDATA[ Firing-rate models simplify neuron dynamics by considering firing-rate as the main representation of information processing in the brain. ]]></description>
+    <pubDate>Fri, 05 Dec 2025 17:03:00 GMT</pubDate>
+  </item><item>
+    <title>Overview</title>
+    <link>https://https://bobona.github.io/notes/Knowledge/Mathematics/Courses/Probability/Overview</link>
+    <guid>https://https://bobona.github.io/notes/Knowledge/Mathematics/Courses/Probability/Overview</guid>
+    <description><![CDATA[ Probability is cool! Cause humans are bad at it without math For this class, we have to do the reading ahead of time, since Keith does not lecture. ]]></description>
+    <pubDate>Fri, 05 Dec 2025 16:46:00 GMT</pubDate>
+  </item>
+    </channel>
+  </rss>
