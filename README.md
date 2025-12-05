@@ -1,2 +1,2 @@
 # notes
-Technical notes, write ups, and other thoughts
+Browse my published notes, write ups, and thoughts [bobona.github.io/notes](here).
