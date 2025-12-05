@@ -52,7 +52,7 @@
     height: 100vh;
     overflow-y: auto;
     display: none;
-    backdrop-filter: blur(4px);
+    backdrop-filter: blur(0.8px);
 
     &.active {
       display: inline-block;
