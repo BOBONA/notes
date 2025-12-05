@@ -38,6 +38,8 @@ export const defaultContentPageLayout: PageLayout = {
     }),
     Component.Explorer({
       folderClickBehavior: "link",
+      folderDefaultState: "open",
+      folderDefaultOpenDepth: 3,
     }),
   ],
   right: [
@@ -63,7 +65,11 @@ export const defaultListPageLayout: PageLayout = {
         { Component: Component.Darkmode() },
       ],
     }),
-    Component.Explorer(),
+    Component.Explorer({
+      folderClickBehavior: "link",
+      folderDefaultState: "open",
+      folderDefaultOpenDepth: 3,
+    }),
   ],
   right: [],
 }

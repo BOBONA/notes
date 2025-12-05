@@ -7,6 +7,7 @@ type MaybeHTMLElement = HTMLElement | undefined
 interface ParsedOptions {
   folderClickBehavior: "collapse" | "link"
   folderDefaultState: "collapsed" | "open"
+  folderDefaultOpenDepth?: number
   useSavedState: boolean
   sortFn: (a: FileTrieNode, b: FileTrieNode) => number
   filterFn: (node: FileTrieNode) => boolean
@@ -181,6 +182,7 @@ async function setupExplorer(currentSlug: FullSlug) {
     const opts: ParsedOptions = {
       folderClickBehavior: (explorer.dataset.behavior || "collapse") as "collapse" | "link",
       folderDefaultState: (explorer.dataset.collapsed || "collapsed") as "collapsed" | "open",
+      folderDefaultOpenDepth: Number(explorer.dataset.defaultopendepth) || undefined,
       useSavedState: explorer.dataset.savestate === "true",
       order: dataFns.order || ["filter", "map", "sort"],
       sortFn: sortFn,
@@ -218,11 +220,20 @@ async function setupExplorer(currentSlug: FullSlug) {
     const folderPaths = trie.getFolderPaths()
     currentExplorerState = folderPaths.map((path) => {
       const previousState = oldIndex.get(path)
+      const depth = path.split("/").length - 1;
+
+      const collapse = previousState !== undefined
+        ? previousState
+        : opts.folderDefaultState === "collapsed"
+          ? true
+          : opts.folderDefaultOpenDepth === undefined
+            ? false
+            : depth > opts.folderDefaultOpenDepth;
+      
       return {
         path,
-        collapsed:
-          previousState === undefined ? opts.folderDefaultState === "collapsed" : previousState,
-      }
+        collapsed: collapse,
+      };
     })
 
     const explorerUl = explorer.querySelector(".explorer-ul")
