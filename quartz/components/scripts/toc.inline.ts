@@ -23,16 +23,25 @@ function updateToc() {
   const headers = document.querySelectorAll("h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]");
   const windowHeight = window.innerHeight;
 
-  headers.forEach((header) => {
-    const slug = header.id;
-    const tocEntryElements = document.querySelectorAll(`a[data-for="${slug}"]`);
-    if (tocEntryElements.length === 0) return;
+  // find the last header whose bottom is above the viewport bottom (scrolled past)
+  let lastPastSlug: string = "";
+  const headerRects = Array.from(headers).map(h => ({ id: h.id, rect: h.getBoundingClientRect() }));
+  headerRects.forEach(({ id, rect }) => {
+    if (rect.bottom < windowHeight) lastPastSlug = id;
+  });
 
-    const rect = header.getBoundingClientRect();
-    const inView = rect.bottom < windowHeight;
-    tocEntryElements.forEach((el) => el.classList.toggle("in-view", inView));
+  // clear all
+  document.querySelectorAll('a[data-for]').forEach(el => el.classList.remove('in-view'));
+
+  // add to any header that is visible (intersects viewport) OR is the last past header
+  headerRects.forEach(({ id, rect }) => {
+    const visible = rect.top < windowHeight && rect.bottom > 0; // partially or fully visible
+    if (visible || id === lastPastSlug) {
+      document.querySelectorAll(`a[data-for="${id}"]`).forEach(el => el.classList.add('in-view'));
+    }
   });
 }
+
 
 let ticking = false;
 function onScrollOrUpdate() {
