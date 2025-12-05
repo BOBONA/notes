@@ -39,11 +39,15 @@ export const defaultContentPageLayout: PageLayout = {
       ],
     }),
     Component.Explorer({
-      folderClickBehavior: "collapse",
+      folderClickBehavior: "link",
     }),
   ],
   right: [
     Component.DesktopOnly(Component.TableOfContents()),
+    Component.ConditionalRender({
+      component: Component.RecentNotes(),
+      condition: (page) => page.fileData.slug === "index",
+    })
   ],
 }
 
