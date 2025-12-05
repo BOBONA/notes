@@ -50,7 +50,7 @@ export const TableOfContents: QuartzTransformerPlugin<Partial<Options>> = (userO
                 }
               })
 
-              if (toc.length > 0 && toc.length > opts.minEntries) {
+              if (toc.length > 0 && toc.length >= opts.minEntries) {
                 file.data.toc = toc.map((entry) => ({
                   ...entry,
                   depth: entry.depth - highestDepth,
