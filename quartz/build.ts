@@ -6,7 +6,7 @@ import { rm } from "fs/promises"
 import { GlobbyFilterFunction, isGitIgnored } from "globby"
 import { styleText } from "util"
 import { parseMarkdown } from "./processors/parse"
-import { filterFiles } from "./processors/filter"
+import { filterContent } from "./processors/filter"
 import { emitContent } from "./processors/emit"
 import cfg from "../quartz.config"
 import { FilePath, joinSegments, slugifyFilePath } from "./util/path"
@@ -77,16 +77,14 @@ async function buildQuartz(argv: Argv, mut: Mutex, clientRefresh: () => void) {
     `Found ${markdownPaths.length} input files from \`${argv.directory}\` in ${perf.timeSince("glob")}`,
   )
 
+  const filePaths = markdownPaths.map((fp) => joinSegments(argv.directory, fp) as FilePath)
   ctx.allFiles = allFiles
   ctx.allSlugs = allFiles.map((fp) => slugifyFilePath(fp as FilePath))
 
-  // Run filters on file-level before doing expensive Markdown parsing
-  const publishedMarkdown = await filterFiles(ctx, markdownPaths as FilePath[])
-  const publishedFilePaths = publishedMarkdown.map((fp) => joinSegments(argv.directory, fp) as FilePath)
+  const parsedFiles = await parseMarkdown(ctx, filePaths)
+  const filteredContent = filterContent(ctx, parsedFiles)
 
-  const parsedFiles = await parseMarkdown(ctx, publishedFilePaths)
-
-  await emitContent(ctx, parsedFiles)
+  await emitContent(ctx, filteredContent)
   console.log(
     styleText("green", `Done processing ${markdownPaths.length} files in ${perf.timeSince()}`),
   )
@@ -254,20 +252,14 @@ async function rebuild(changes: ChangeEvent[], clientRefresh: () => void, buildD
   })
 
   // update allFiles and then allSlugs with the consistent view of content map
-  const allKeys = Array.from(contentMap.keys())
-  ctx.allFiles = allKeys
-
-  // Re-run file-level filters against the current set of markdown files
-  const markdownRelative = allKeys.filter((f) => f.endsWith(".md")) as FilePath[]
-  const published = await filterFiles(ctx, markdownRelative)
-
-  ctx.allFiles = [...ctx.allFiles.filter((f) => !f.endsWith(".md")), ...published]
+  ctx.allFiles = Array.from(contentMap.keys())
   ctx.allSlugs = ctx.allFiles.map((fp) => slugifyFilePath(fp as FilePath))
-
-  const processedFiles = Array.from(contentMap.values())
-    .filter((file) => file.type === "markdown")
-    .map((file) => file.content)
-    .filter(([, v]) => published.includes(v.data.relativePath!))
+  let processedFiles = filterContent(
+    ctx,
+    Array.from(contentMap.values())
+      .filter((file) => file.type === "markdown")
+      .map((file) => file.content),
+  )
 
   let emittedFiles = 0
   for (const emitter of cfg.plugins.emitters) {
