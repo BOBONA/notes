@@ -10,6 +10,7 @@ import { NotFound } from "../../components"
 import { defaultProcessedContent } from "../vfile"
 import { write } from "./helpers"
 import { i18n } from "../../i18n"
+import { argv } from "process"
 
 export const NotFoundPage: QuartzEmitterPlugin = () => {
   const opts: FullPageLayout = {
@@ -64,9 +65,11 @@ export const NotFoundPage: QuartzEmitterPlugin = () => {
         frontmatter: { title, tags: [] },
       })
 
-        const basePath = new URL(cfg.baseUrl ?? "/", "https://example.com").pathname.replace(/\/$/, "")
-      const externalResources = pageResources(basePath as RelativeURL, resources)
-
+      const basePath = new URL(cfg.baseUrl ?? "/", "https://example.com").pathname.replace(/\/$/, "")
+      
+      // On local serve, use root-relative paths for resources
+      const externalResources = pageResources(ctx.argv.serve ? "/" as RelativeURL : basePath as RelativeURL, resources)
+      
       const componentData: QuartzComponentProps = {
         ctx,
         fileData: vfile.data,
