@@ -64,7 +64,8 @@ export const NotFoundPage: QuartzEmitterPlugin = () => {
         frontmatter: { title, tags: [] },
       })
 
-      const externalResources = pageResources("/" as RelativeURL, resources)
+        const basePath = new URL(cfg.baseUrl ?? "/", "https://example.com").pathname.replace(/\/$/, "")
+      const externalResources = pageResources(basePath as RelativeURL, resources)
 
       const componentData: QuartzComponentProps = {
         ctx,
@@ -77,8 +78,6 @@ export const NotFoundPage: QuartzEmitterPlugin = () => {
       }
 
       let pageHtml = renderPage(cfg, slug, componentData, opts, externalResources)
-
-      const basePath = new URL(cfg.baseUrl ?? "/", "https://example.com").pathname.replace(/\/$/, "")
 
       // Inject script to set actual requested slug for the explorer
       const script = `
@@ -106,8 +105,6 @@ if (pathFromBase.startsWith("${basePath}")) pathFromBase = pathFromBase.slice(${
 pathFromBase = stripSlashes(pathFromBase);
 const slug = slugifyFilePath(pathFromBase);
 document.body.dataset.slug = slug;
-
-console.log("404 page script set slug to:", slug);
 </script>
 `
       
