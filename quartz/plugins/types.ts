@@ -30,7 +30,7 @@ export type QuartzFilterPlugin<Options extends OptionType = undefined> = (
 ) => QuartzFilterPluginInstance
 export type QuartzFilterPluginInstance = {
   name: string
-  shouldPublish(ctx: BuildCtx, content: ProcessedContent): boolean
+  shouldPublish(ctx: BuildCtx, path: FilePath): Promise<boolean>
 }
 
 export type ChangeEvent = {

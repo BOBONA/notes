@@ -77,14 +77,18 @@ async function buildQuartz(argv: Argv, mut: Mutex, clientRefresh: () => void) {
     `Found ${markdownPaths.length} input files from \`${argv.directory}\` in ${perf.timeSince("glob")}`,
   )
 
-  const filePaths = markdownPaths.map((fp) => joinSegments(argv.directory, fp) as FilePath)
-  ctx.allFiles = allFiles
-  ctx.allSlugs = allFiles.map((fp) => slugifyFilePath(fp as FilePath))
+  const filteredFiles = await filterContent(ctx, allFiles)
 
-  const parsedFiles = await parseMarkdown(ctx, filePaths)
-  const filteredContent = filterContent(ctx, parsedFiles)
+  ctx.allFiles = filteredFiles
+  ctx.allSlugs = filteredFiles.map((fp) => slugifyFilePath(fp as FilePath))
 
-  await emitContent(ctx, filteredContent)
+  const filteredMarkdownPaths = filteredFiles
+    .filter((fp) => fp.endsWith(".md"))
+    .map((fp) => joinSegments(argv.directory, fp) as FilePath)
+
+  const parsedFiles = await parseMarkdown(ctx, filteredMarkdownPaths)
+
+  await emitContent(ctx, parsedFiles)
   console.log(
     styleText("green", `Done processing ${markdownPaths.length} files in ${perf.timeSince()}`),
   )
@@ -252,14 +256,17 @@ async function rebuild(changes: ChangeEvent[], clientRefresh: () => void, buildD
   })
 
   // update allFiles and then allSlugs with the consistent view of content map
-  ctx.allFiles = Array.from(contentMap.keys())
-  ctx.allSlugs = ctx.allFiles.map((fp) => slugifyFilePath(fp as FilePath))
-  let processedFiles = filterContent(
-    ctx,
-    Array.from(contentMap.values())
-      .filter((file) => file.type === "markdown")
-      .map((file) => file.content),
-  )
+  const allPaths = Array.from(contentMap.keys())
+  const filteredPaths = await filterContent(ctx, allPaths)
+
+  ctx.allFiles = filteredPaths
+  ctx.allSlugs = filteredPaths.map(fp => slugifyFilePath(fp))
+
+  const processedFiles = filteredPaths
+    .filter(fp => fp.endsWith(".md"))
+    .map(fp => contentMap.get(fp)!)
+    .filter(entry => entry.type === "markdown")
+    .map(entry => entry.content)
 
   let emittedFiles = 0
   for (const emitter of cfg.plugins.emitters) {
