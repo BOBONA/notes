@@ -71,7 +71,10 @@ async function buildQuartz(argv: Argv, mut: Mutex, clientRefresh: () => void) {
   console.log(`Cleaned output directory \`${output}\` in ${perf.timeSince("clean")}`)
 
   perf.addEvent("glob")
-  const allFiles = await glob("**/*.*", argv.directory, cfg.configuration.ignorePatterns)
+  let allFiles = await glob("**/*.md", argv.directory, cfg.configuration.ignorePatterns)
+  allFiles = allFiles.concat(
+    await glob("**/*", argv.directory, (cfg.configuration.assetIgnorePatterns ?? []).concat("**/*.md")),
+  )
   const markdownPaths = allFiles.filter((fp) => fp.endsWith(".md")).sort()
   console.log(
     `Found ${markdownPaths.length} input files from \`${argv.directory}\` in ${perf.timeSince("glob")}`,
@@ -136,6 +139,13 @@ async function startWatching(
       for (const pattern of cfg.configuration.ignorePatterns) {
         if (minimatch(pathStr, pattern)) {
           return true
+        }
+      }
+      if (!pathStr.endsWith(".md")) {
+        for (const pattern of cfg.configuration.assetIgnorePatterns ?? []) {
+          if (minimatch(pathStr, pattern)) {
+            return true
+          }
         }
       }
 

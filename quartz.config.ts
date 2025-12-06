@@ -15,7 +15,8 @@ const config: QuartzConfig = {
     },
     locale: "en-US",
     baseUrl: "https://bobona.github.io/notes/",
-    ignorePatterns: ["private", "templates", ".obsidian"],
+    ignorePatterns: ["private", "templates", ".obsidian"], 
+    assetIgnorePatterns: ["!(public)/**"],
     defaultDateType: "modified",
     theme: {
       fontOrigin: "googleFonts",
@@ -94,7 +95,7 @@ const config: QuartzConfig = {
         enableSiteMap: true,
         // enableRSS: true,
       }),
-      // Plugin.Assets(),
+      Plugin.Assets(),
       Plugin.Static(),
       Plugin.Favicon(),
       Plugin.NotFoundPage(),
