@@ -1,10 +1,11 @@
 import { QuartzEmitterPlugin } from "../types"
 import { QuartzComponentProps } from "../../components/types"
+import HeaderConstructor from "../../components/Header"
 import BodyConstructor from "../../components/Body"
 import { pageResources, renderPage } from "../../components/renderPage"
 import { FullPageLayout } from "../../cfg"
-import { FullSlug } from "../../util/path"
-import { sharedPageComponents } from "../../../quartz.layout"
+import { FullSlug, RelativeURL } from "../../util/path"
+import { sharedPageComponents, defaultListPageLayout } from "../../../quartz.layout"
 import { NotFound } from "../../components"
 import { defaultProcessedContent } from "../vfile"
 import { write } from "./helpers"
@@ -13,34 +14,58 @@ import { i18n } from "../../i18n"
 export const NotFoundPage: QuartzEmitterPlugin = () => {
   const opts: FullPageLayout = {
     ...sharedPageComponents,
+    ...defaultListPageLayout,
     pageBody: NotFound(),
-    beforeBody: [],
-    left: [],
-    right: [],
   }
 
-  const { head: Head, pageBody, footer: Footer } = opts
+  opts.beforeBody = []
+
+  const {
+    head: Head,
+    header,
+    beforeBody,
+    pageBody,
+    afterBody,
+    left,
+    right,
+    footer: Footer,
+  } = opts
+
+  const Header = HeaderConstructor()
   const Body = BodyConstructor()
 
   return {
     name: "404Page",
+
     getQuartzComponents() {
-      return [Head, Body, pageBody, Footer]
+      return [
+        Head,
+        Header,
+        Body,
+        ...header,
+        ...beforeBody,
+        pageBody,
+        ...afterBody,
+        ...left,
+        ...right,
+        Footer,
+      ]
     },
+
     async *emit(ctx, _content, resources) {
       const cfg = ctx.cfg.configuration
       const slug = "404" as FullSlug
+      const title = i18n(cfg.locale).pages.error.title
 
-      const url = new URL(`https://${cfg.baseUrl ?? "example.com"}`)
-      const path = url.pathname as FullSlug
-      const notFound = i18n(cfg.locale).pages.error.title
       const [tree, vfile] = defaultProcessedContent({
         slug,
-        text: notFound,
-        description: notFound,
-        frontmatter: { title: notFound, tags: [] },
+        text: title,
+        description: title,
+        frontmatter: { title, tags: [] },
       })
-      const externalResources = pageResources(path, resources)
+
+      const externalResources = pageResources("/" as RelativeURL, resources)
+
       const componentData: QuartzComponentProps = {
         ctx,
         fileData: vfile.data,
@@ -58,6 +83,7 @@ export const NotFoundPage: QuartzEmitterPlugin = () => {
         ext: ".html",
       })
     },
+
     async *partialEmit() {},
   }
 }

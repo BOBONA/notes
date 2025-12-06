@@ -1,24 +1,29 @@
 import { BuildCtx } from "../util/ctx"
+import { FilePath, joinSegments } from "../util/path"
 import { PerfTimer } from "../util/perf"
-import { ProcessedContent } from "../plugins/vfile"
 
-export function filterContent(ctx: BuildCtx, content: ProcessedContent[]): ProcessedContent[] {
-  const { cfg, argv } = ctx
+export async function filterContent(ctx: BuildCtx, paths: FilePath[]): Promise<FilePath[]> {
+  const { cfg } = ctx
   const perf = new PerfTimer()
-  const initialLength = content.length
+  const initialLength = paths.length
   for (const plugin of cfg.plugins.filters) {
-    const updatedContent = content.filter((item) => plugin.shouldPublish(ctx, item))
+    const updatedContent = []
 
-    if (argv.verbose) {
-      const diff = content.filter((x) => !updatedContent.includes(x))
-      for (const file of diff) {
-        console.log(`[filter:${plugin.name}] ${file[1].data.slug}`)
+    for (const item of paths) {
+      if (!item.endsWith(".md")) {
+        updatedContent.push(item)
+        continue
       }
-    }
 
-    content = updatedContent
+      const path = joinSegments(ctx.argv.directory, item) as FilePath
+      const shouldPublish = await plugin.shouldPublish(ctx, path)
+
+      if (shouldPublish) updatedContent.push(item)
+    }
+  
+    paths = updatedContent
   }
 
-  console.log(`Filtered out ${initialLength - content.length} files in ${perf.timeSince()}`)
-  return content
+  console.log(`Filtered out ${initialLength - paths.length} files in ${perf.timeSince()}`)
+  return paths
 }
