@@ -10,7 +10,13 @@
     <link>https://https://bobona.github.io/notes/Knowledge/Mathematics/Courses/Probability/Expectation</link>
     <guid>https://https://bobona.github.io/notes/Knowledge/Mathematics/Courses/Probability/Expectation</guid>
     <description><![CDATA[ Recall, the expected value of a random variable X is E[X]=\sum_{x}^{}xp(x) if X is discrete and E[X]=\int_{-\infty}^{\infty}xf(x) \, dx if X is continuous If P\{ a\leq X\leq b \}=1 for some a and b then a\leq E[X]\leq b If X and Y have a joint probability mass function p(x,y) then E[g(X,Y)]=\sum_{y}... ]]></description>
-    <pubDate>Fri, 05 Dec 2025 20:43:00 GMT</pubDate>
+    <pubDate>Sat, 06 Dec 2025 15:01:00 GMT</pubDate>
+  </item><item>
+    <title>Home</title>
+    <link>https://https://bobona.github.io/notes/</link>
+    <guid>https://https://bobona.github.io/notes/</guid>
+    <description><![CDATA[ This site is a collection of technical notes, write ups, and other thoughts. I will be updating this irregularly. This is not a portfolio. ]]></description>
+    <pubDate>Sat, 06 Dec 2025 13:27:00 GMT</pubDate>
   </item><item>
     <title>Probability</title>
     <link>https://https://bobona.github.io/notes/Knowledge/Mathematics/Courses/Probability/</link>
@@ -29,12 +35,6 @@
     <guid>https://https://bobona.github.io/notes/Knowledge/Mathematics/Courses/Stochastic-Processes-and-Applications/</guid>
     <description><![CDATA[ Introduction. ]]></description>
     <pubDate>Fri, 05 Dec 2025 19:22:00 GMT</pubDate>
-  </item><item>
-    <title>Home</title>
-    <link>https://https://bobona.github.io/notes/</link>
-    <guid>https://https://bobona.github.io/notes/</guid>
-    <description><![CDATA[ This site is a collection of technical notes, write ups, and other thoughts. I will be updating this irregularly. This is not a portfolio. ]]></description>
-    <pubDate>Fri, 05 Dec 2025 19:21:00 GMT</pubDate>
   </item><item>
     <title>Hypothesis Testing</title>
     <link>https://https://bobona.github.io/notes/Knowledge/Mathematics/Courses/Statistics/Hypothesis-Testing</link>

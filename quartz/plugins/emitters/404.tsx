@@ -76,9 +76,46 @@ export const NotFoundPage: QuartzEmitterPlugin = () => {
         allFiles: [],
       }
 
+      let pageHtml = renderPage(cfg, slug, componentData, opts, externalResources)
+
+      const basePath = new URL(cfg.baseUrl ?? "/", "https://example.com").pathname.replace(/\/$/, "")
+
+      // Inject script to set actual requested slug for the explorer
+      const script = `
+<script>
+const stripSlashes = (s) => s.replace(/^\\/+/, '').replace(/\\/+$/, '');
+const endsWith = (s, suffix) => s === suffix || s.endsWith('/' + suffix);
+const sluggify = (str) => str
+  .split('/')
+  .map(seg => seg.replace(/\\s/g, '-').replace(/&/g, '-and-').replace(/%/g, '-percent').replace(/\\?/g, '').replace(/#/g, ''))
+  .join('/');
+
+const slugifyFilePath = (fp) => {
+  fp = stripSlashes(fp);
+  let extMatch = fp.match(/\\.[A-Za-z0-9]+$/);
+  let ext = extMatch ? extMatch[0] : '';
+  const withoutFileExt = fp.replace(new RegExp(ext + "$"), '');
+  ext = ''; // remove extension for explorer
+  let slug = sluggify(withoutFileExt);
+  if (endsWith(slug, '_index')) slug = slug.replace(/_index$/, 'index');
+  return slug;
+}
+
+let pathFromBase = window.location.pathname;
+if (pathFromBase.startsWith("${basePath}")) pathFromBase = pathFromBase.slice(${basePath.length});
+pathFromBase = stripSlashes(pathFromBase);
+const slug = slugifyFilePath(pathFromBase);
+document.body.dataset.slug = slug;
+
+console.log("404 page script set slug to:", slug);
+</script>
+`
+      
+      pageHtml = pageHtml.replace("</body>", `${script}</body>`)
+
       yield write({
         ctx,
-        content: renderPage(cfg, slug, componentData, opts, externalResources),
+        content: pageHtml,
         slug,
         ext: ".html",
       })
