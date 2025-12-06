@@ -13,6 +13,7 @@ import {
   joinSegments,
   pathToRoot,
   simplifySlug,
+  FilePath,
 } from "../../util/path"
 import { defaultListPageLayout, sharedPageComponents } from "../../../quartz.layout"
 import { FolderContent } from "../../components"
@@ -60,18 +61,18 @@ async function* processFolderInfo(
 }
 
 function computeFolderInfo(
-  folders: Set<SimpleSlug>,
+  folders: Set<[SimpleSlug, SimpleSlug]>,
   content: ProcessedContent[],
   locale: keyof typeof TRANSLATIONS,
 ): Record<SimpleSlug, ProcessedContent> {
   // Create default folder descriptions
   const folderInfo: Record<SimpleSlug, ProcessedContent> = Object.fromEntries(
     [...folders].map((folder) => [
-      folder,
+      folder[1],
       defaultProcessedContent({
-        slug: joinSegments(folder, "index") as FullSlug,
+        slug: joinSegments(folder[1], "index") as FullSlug,
         frontmatter: {
-          title: `${i18n(locale).pages.folderContent.folder}: ${folder}`,
+          title: `${folder[0].split("/").pop()}`,
           tags: [],
         },
       }),
@@ -79,9 +80,10 @@ function computeFolderInfo(
   )
 
   // Update with actual content if available
+  const folderSlugs = new Set([...folders].map((f) => f[1]))
   for (const [tree, file] of content) {
     const slug = stripSlashes(simplifySlug(file.data.slug!)) as SimpleSlug
-    if (folders.has(slug)) {
+    if (folderSlugs.has(slug)) {
       folderInfo[slug] = [tree, file]
     }
   }
@@ -89,15 +91,17 @@ function computeFolderInfo(
   return folderInfo
 }
 
-function _getFolders(slug: FullSlug): SimpleSlug[] {
-  var folderName = path.dirname(slug ?? "") as SimpleSlug
+function _getFolders(file: FullSlug): SimpleSlug[] {
+  var folderName = path.dirname(file ?? "") as SimpleSlug
+
   const parentFolderNames = [folderName]
 
   while (folderName !== ".") {
     folderName = path.dirname(folderName ?? "") as SimpleSlug
     parentFolderNames.push(folderName)
   }
-  return parentFolderNames
+  
+  return parentFolderNames.filter((folderName) => folderName !== "." && folderName !== "tags")
 }
 
 export const FolderPage: QuartzEmitterPlugin<Partial<FolderPageOptions>> = (userOpts) => {
@@ -132,12 +136,12 @@ export const FolderPage: QuartzEmitterPlugin<Partial<FolderPageOptions>> = (user
       const allFiles = content.map((c) => c[1].data)
       const cfg = ctx.cfg.configuration
 
-      const folders: Set<SimpleSlug> = new Set(
+      const zip = (a: any, b: any) => a.map((k: any, i: number) => [k, b[i]])
+
+      const folders: Set<[SimpleSlug, SimpleSlug]> = new Set(
         allFiles.flatMap((data) => {
           return data.slug
-            ? _getFolders(data.slug).filter(
-                (folderName) => folderName !== "." && folderName !== "tags",
-              )
+            ? zip(_getFolders(data.relativePath?.toString() as FullSlug), _getFolders(data.slug))
             : []
         }),
       )
@@ -150,14 +154,15 @@ export const FolderPage: QuartzEmitterPlugin<Partial<FolderPageOptions>> = (user
       const cfg = ctx.cfg.configuration
 
       // Find all folders that need to be updated based on changed files
-      const affectedFolders: Set<SimpleSlug> = new Set()
+      const affectedFolders: Set<[SimpleSlug, SimpleSlug]> = new Set()
       for (const changeEvent of changeEvents) {
         if (!changeEvent.file) continue
-        const slug = changeEvent.file.data.slug!
-        const folders = _getFolders(slug).filter(
-          (folderName) => folderName !== "." && folderName !== "tags",
-        )
-        folders.forEach((folder) => affectedFolders.add(folder))
+
+        const zip = (a: any, b: any) => a.map((k: any, i: number) => [k, b[i]])
+        const pathFolders = _getFolders(changeEvent.file.data.relativePath?.toString() as FullSlug)
+        const slugFolders = _getFolders(changeEvent.file.data.slug as FullSlug)
+
+        zip(pathFolders, slugFolders).forEach((folderPair: [SimpleSlug, SimpleSlug]) => affectedFolders.add(folderPair))
       }
 
       // If there are affected folders, rebuild their pages
