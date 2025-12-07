@@ -2,67 +2,67 @@
 <rss version="2.0">
     <channel>
       <title>Binyamin&#039;s Notes</title>
-      <link>https://bobona.github.io/notes/</link>
+      <link>https://https://bobona.github.io/notes/</link>
       <description>Last 10 notes on Binyamin&#039;s Notes</description>
       <generator>Quartz -- quartz.jzhao.xyz</generator>
       <item>
     <title>Firing-Rate Models</title>
-    <link>https://bobona.github.io/notes/Undergrad/Computational-Neuroscience/Firing-Rate-Models</link>
-    <guid>https://bobona.github.io/notes/Undergrad/Computational-Neuroscience/Firing-Rate-Models</guid>
+    <link>https://https://bobona.github.io/notes/Undergrad/Computational-Neuroscience/Firing-Rate-Models</link>
+    <guid>https://https://bobona.github.io/notes/Undergrad/Computational-Neuroscience/Firing-Rate-Models</guid>
     <description><![CDATA[ Firing-rate models simplify neuron dynamics by considering firing-rate as the main representation of information processing in the brain. ]]></description>
     <pubDate>Sun, 07 Dec 2025 21:35:00 GMT</pubDate>
   </item><item>
     <title>Spike Trains</title>
-    <link>https://bobona.github.io/notes/Undergrad/Computational-Neuroscience/Spike-Trains</link>
-    <guid>https://bobona.github.io/notes/Undergrad/Computational-Neuroscience/Spike-Trains</guid>
+    <link>https://https://bobona.github.io/notes/Undergrad/Computational-Neuroscience/Spike-Trains</link>
+    <guid>https://https://bobona.github.io/notes/Undergrad/Computational-Neuroscience/Spike-Trains</guid>
     <description><![CDATA[ Action potentials, or spikes, are the main unit of information transfer in our brains. ]]></description>
     <pubDate>Sun, 07 Dec 2025 21:35:00 GMT</pubDate>
   </item><item>
     <title>Conductance-Based Models</title>
-    <link>https://bobona.github.io/notes/Undergrad/Computational-Neuroscience/Conductance-Based-Models</link>
-    <guid>https://bobona.github.io/notes/Undergrad/Computational-Neuroscience/Conductance-Based-Models</guid>
+    <link>https://https://bobona.github.io/notes/Undergrad/Computational-Neuroscience/Conductance-Based-Models</link>
+    <guid>https://https://bobona.github.io/notes/Undergrad/Computational-Neuroscience/Conductance-Based-Models</guid>
     <description><![CDATA[ The Hodgkin-Huxley Model Alan Hodgkin and Andrew Huxley published a series of five papers in 1952, detailing a model for the generation and propagation of the active potential by active sodium and potassium channels. ]]></description>
     <pubDate>Sun, 07 Dec 2025 21:34:00 GMT</pubDate>
   </item><item>
     <title>Learning and Plasticity</title>
-    <link>https://bobona.github.io/notes/Undergrad/Computational-Neuroscience/Learning-and-Plasticity</link>
-    <guid>https://bobona.github.io/notes/Undergrad/Computational-Neuroscience/Learning-and-Plasticity</guid>
+    <link>https://https://bobona.github.io/notes/Undergrad/Computational-Neuroscience/Learning-and-Plasticity</link>
+    <guid>https://https://bobona.github.io/notes/Undergrad/Computational-Neuroscience/Learning-and-Plasticity</guid>
     <description><![CDATA[ Hebbian plasticity Hebbian plasticity is a change in synaptic strength produced by a positive correlation between presynaptic and postsynaptic spikes The mechanisms generally depend on an increase in calcium concentration within the postsynaptic cell in the vicinity of the synapse, either through ca... ]]></description>
     <pubDate>Sun, 07 Dec 2025 21:32:00 GMT</pubDate>
   </item><item>
     <title>Population Data</title>
-    <link>https://bobona.github.io/notes/Undergrad/Computational-Neuroscience/Population-Data</link>
-    <guid>https://bobona.github.io/notes/Undergrad/Computational-Neuroscience/Population-Data</guid>
+    <link>https://https://bobona.github.io/notes/Undergrad/Computational-Neuroscience/Population-Data</link>
+    <guid>https://https://bobona.github.io/notes/Undergrad/Computational-Neuroscience/Population-Data</guid>
     <description><![CDATA[ Principle Component Analysis This course has mostly covered small networks and single neurons because these are the easiest to understand. ]]></description>
     <pubDate>Sun, 07 Dec 2025 21:32:00 GMT</pubDate>
   </item><item>
     <title>Preliminary Information</title>
-    <link>https://bobona.github.io/notes/Undergrad/Computational-Neuroscience/Preliminary-Information</link>
-    <guid>https://bobona.github.io/notes/Undergrad/Computational-Neuroscience/Preliminary-Information</guid>
+    <link>https://https://bobona.github.io/notes/Undergrad/Computational-Neuroscience/Preliminary-Information</link>
+    <guid>https://https://bobona.github.io/notes/Undergrad/Computational-Neuroscience/Preliminary-Information</guid>
     <description><![CDATA[ General Background Nearly all of single neuron modeling revolves around calculating causes and effects of the action potential Definition: The membrane potential V_{m} is the highly variable potential difference across the cell’s membrane The key to modeling is ordinary differential equations which ... ]]></description>
     <pubDate>Sun, 07 Dec 2025 21:32:00 GMT</pubDate>
   </item><item>
     <title>Connections between Neurons</title>
-    <link>https://bobona.github.io/notes/Undergrad/Computational-Neuroscience/Connections-between-Neurons</link>
-    <guid>https://bobona.github.io/notes/Undergrad/Computational-Neuroscience/Connections-between-Neurons</guid>
+    <link>https://https://bobona.github.io/notes/Undergrad/Computational-Neuroscience/Connections-between-Neurons</link>
+    <guid>https://https://bobona.github.io/notes/Undergrad/Computational-Neuroscience/Connections-between-Neurons</guid>
     <description><![CDATA[ While a single neuron is quite powerful, the real magic begins once multiple neurons begin to influence each other. ]]></description>
     <pubDate>Sun, 07 Dec 2025 21:31:00 GMT</pubDate>
   </item><item>
     <title>Dynamical Systems</title>
-    <link>https://bobona.github.io/notes/Undergrad/Computational-Neuroscience/Dynamical-Systems</link>
-    <guid>https://bobona.github.io/notes/Undergrad/Computational-Neuroscience/Dynamical-Systems</guid>
+    <link>https://https://bobona.github.io/notes/Undergrad/Computational-Neuroscience/Dynamical-Systems</link>
+    <guid>https://https://bobona.github.io/notes/Undergrad/Computational-Neuroscience/Dynamical-Systems</guid>
     <description><![CDATA[ Dynamical Systems Dynamical systems have been the subject of much of this book, systems in which variables can change in time. ]]></description>
     <pubDate>Sun, 07 Dec 2025 21:31:00 GMT</pubDate>
   </item><item>
     <title>Computational Neuroscience</title>
-    <link>https://bobona.github.io/notes/Undergrad/Computational-Neuroscience/</link>
-    <guid>https://bobona.github.io/notes/Undergrad/Computational-Neuroscience/</guid>
+    <link>https://https://bobona.github.io/notes/Undergrad/Computational-Neuroscience/</link>
+    <guid>https://https://bobona.github.io/notes/Undergrad/Computational-Neuroscience/</guid>
     <description><![CDATA[ This course was taught by Paul Miller from his own textbook. I am not a neuroscience major, but I took this freshman year and enjoyed it a lot. ]]></description>
     <pubDate>Sun, 07 Dec 2025 21:30:00 GMT</pubDate>
   </item><item>
     <title>Entity-Relationship Modeling</title>
-    <link>https://bobona.github.io/notes/Undergrad/Database-Management-Systems/Entity-Relationship-Modeling</link>
-    <guid>https://bobona.github.io/notes/Undergrad/Database-Management-Systems/Entity-Relationship-Modeling</guid>
+    <link>https://https://bobona.github.io/notes/Undergrad/Database-Management-Systems/Entity-Relationship-Modeling</link>
+    <guid>https://https://bobona.github.io/notes/Undergrad/Database-Management-Systems/Entity-Relationship-Modeling</guid>
     <description><![CDATA[ Data model: A collection of concepts that allows us to translate real-world constructs into computer-understandable structures Relation, entity-relationship, key-value, graph, time series, document… Proper modeling is difficult Requirements analysis Conceptual design, often using an ER model Logical... ]]></description>
     <pubDate>Sun, 07 Dec 2025 21:27:00 GMT</pubDate>
   </item>

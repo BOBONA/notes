@@ -4,7 +4,7 @@ import { styleText } from "util"
 import { FullSlug } from "../../util/path"
 
 export function extractDomainFromBaseUrl(baseUrl: string) {
-  const url = new URL(`https://${baseUrl}`)
+  const url = new URL(`${baseUrl}`)
   return url.hostname
 }
 
