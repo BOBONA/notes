@@ -228,7 +228,7 @@ async function setupExplorer(currentSlug: FullSlug) {
           : opts.folderDefaultOpenDepth === undefined
             ? false
             : depth > opts.folderDefaultOpenDepth;
-      
+            
       return {
         path,
         collapsed: collapse,

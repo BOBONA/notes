@@ -39,7 +39,7 @@ export const defaultContentPageLayout: PageLayout = {
     Component.Explorer({
       folderClickBehavior: "link",
       folderDefaultState: "open",
-      folderDefaultOpenDepth: 2,
+      folderDefaultOpenDepth: 1,
     }),
   ],
   right: [
