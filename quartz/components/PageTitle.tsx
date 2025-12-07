@@ -7,7 +7,7 @@ const PageTitle: QuartzComponent = ({ ctx, cfg, displayClass }: QuartzComponentP
   const baseDir = ctx.argv.serve ? "/" : cfg.baseUrl
   return (
     <h2 class={classNames(displayClass, "page-title")}>
-      <a href={baseDir}>{title}</a>
+      <a href={baseDir + "/"}>{title}</a>
     </h2>
   )
 }

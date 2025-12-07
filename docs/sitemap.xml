@@ -5,12 +5,6 @@
     <loc>https://https://bobona.github.io/notes/Undergrad/</loc>
     <lastmod>2025-12-07T20:08:00.000Z</lastmod>
   </url><url>
-    <loc>https://https://bobona.github.io/notes/Undergrad/Advanced-Data-Systems/</loc>
-    <lastmod>2025-12-07T21:03:00.000Z</lastmod>
-  </url><url>
-    <loc>https://https://bobona.github.io/notes/Undergrad/Advanced-Data-Systems/Overview</loc>
-    <lastmod>2025-12-07T20:20:00.000Z</lastmod>
-  </url><url>
     <loc>https://https://bobona.github.io/notes/Undergrad/Computational-Neuroscience/Conductance-Based-Models</loc>
     <lastmod>2025-12-07T21:34:00.000Z</lastmod>
   </url><url>
@@ -37,6 +31,24 @@
   </url><url>
     <loc>https://https://bobona.github.io/notes/Undergrad/Computational-Neuroscience/Spike-Trains</loc>
     <lastmod>2025-12-07T21:35:00.000Z</lastmod>
+  </url><url>
+    <loc>https://https://bobona.github.io/notes/Undergrad/Advanced-Data-Systems/</loc>
+    <lastmod>2025-12-07T21:03:00.000Z</lastmod>
+  </url><url>
+    <loc>https://https://bobona.github.io/notes/Undergrad/Advanced-Data-Systems/Overview</loc>
+    <lastmod>2025-12-07T20:20:00.000Z</lastmod>
+  </url><url>
+    <loc>https://https://bobona.github.io/notes/Undergrad/Distributed-Systems/Consistency</loc>
+    <lastmod>2025-12-07T20:43:00.000Z</lastmod>
+  </url><url>
+    <loc>https://https://bobona.github.io/notes/Undergrad/Distributed-Systems/Distributed-Transactions</loc>
+    <lastmod>2025-12-07T20:43:00.000Z</lastmod>
+  </url><url>
+    <loc>https://https://bobona.github.io/notes/Undergrad/Distributed-Systems/</loc>
+    <lastmod>2025-12-07T20:43:00.000Z</lastmod>
+  </url><url>
+    <loc>https://https://bobona.github.io/notes/Undergrad/Distributed-Systems/Lock-Service</loc>
+    <lastmod>2025-12-07T20:43:00.000Z</lastmod>
   </url><url>
     <loc>https://https://bobona.github.io/notes/Undergrad/Database-Management-Systems/Entity-Relationship-Modeling</loc>
     <lastmod>2025-12-07T21:27:00.000Z</lastmod>
@@ -71,18 +83,6 @@
     <loc>https://https://bobona.github.io/notes/Undergrad/Database-Management-Systems/Transactions</loc>
     <lastmod>2025-12-07T21:26:00.000Z</lastmod>
   </url><url>
-    <loc>https://https://bobona.github.io/notes/Undergrad/Distributed-Systems/Consistency</loc>
-    <lastmod>2025-12-07T20:43:00.000Z</lastmod>
-  </url><url>
-    <loc>https://https://bobona.github.io/notes/Undergrad/Distributed-Systems/Distributed-Transactions</loc>
-    <lastmod>2025-12-07T20:43:00.000Z</lastmod>
-  </url><url>
-    <loc>https://https://bobona.github.io/notes/Undergrad/Distributed-Systems/</loc>
-    <lastmod>2025-12-07T20:43:00.000Z</lastmod>
-  </url><url>
-    <loc>https://https://bobona.github.io/notes/Undergrad/Distributed-Systems/Lock-Service</loc>
-    <lastmod>2025-12-07T20:43:00.000Z</lastmod>
-  </url><url>
     <loc>https://https://bobona.github.io/notes/Undergrad/Fourier-Analysis/Analysis-Recap</loc>
     <lastmod>2025-12-07T19:59:00.000Z</lastmod>
   </url><url>
@@ -112,6 +112,30 @@
   </url><url>
     <loc>https://https://bobona.github.io/notes/Undergrad/Fourier-Analysis/The-Heat-Equation</loc>
     <lastmod>2025-12-07T20:01:00.000Z</lastmod>
+  </url><url>
+    <loc>https://https://bobona.github.io/notes/Undergrad/Numerical-Methods/Convergence-Rates</loc>
+    <lastmod>2025-12-07T20:06:00.000Z</lastmod>
+  </url><url>
+    <loc>https://https://bobona.github.io/notes/Undergrad/Numerical-Methods/Differential-Equations</loc>
+    <lastmod>2025-12-07T20:06:00.000Z</lastmod>
+  </url><url>
+    <loc>https://https://bobona.github.io/notes/Undergrad/Numerical-Methods/Floating-Point-Numbers</loc>
+    <lastmod>2025-12-07T20:06:00.000Z</lastmod>
+  </url><url>
+    <loc>https://https://bobona.github.io/notes/Undergrad/Numerical-Methods/</loc>
+    <lastmod>2025-12-07T20:03:00.000Z</lastmod>
+  </url><url>
+    <loc>https://https://bobona.github.io/notes/Undergrad/Numerical-Methods/Introduction</loc>
+    <lastmod>2025-12-07T20:06:00.000Z</lastmod>
+  </url><url>
+    <loc>https://https://bobona.github.io/notes/Undergrad/Numerical-Methods/Lagrange-Interpolation</loc>
+    <lastmod>2025-12-07T20:06:00.000Z</lastmod>
+  </url><url>
+    <loc>https://https://bobona.github.io/notes/Undergrad/Numerical-Methods/Linear-Systems</loc>
+    <lastmod>2025-12-07T20:06:00.000Z</lastmod>
+  </url><url>
+    <loc>https://https://bobona.github.io/notes/Undergrad/Numerical-Methods/Non-Linear-Equations</loc>
+    <lastmod>2025-12-07T20:06:00.000Z</lastmod>
   </url><url>
     <loc>https://https://bobona.github.io/notes/Undergrad/Honors-Multivariable-Calculus/Characteristics-of-Functions</loc>
     <lastmod>2025-12-07T20:12:00.000Z</lastmod>
@@ -145,30 +169,6 @@
   </url><url>
     <loc>https://https://bobona.github.io/notes/Undergrad/Honors-Multivariable-Calculus/Taylor's-Theorem</loc>
     <lastmod>2025-12-07T20:11:00.000Z</lastmod>
-  </url><url>
-    <loc>https://https://bobona.github.io/notes/Undergrad/Numerical-Methods/Convergence-Rates</loc>
-    <lastmod>2025-12-07T20:06:00.000Z</lastmod>
-  </url><url>
-    <loc>https://https://bobona.github.io/notes/Undergrad/Numerical-Methods/Differential-Equations</loc>
-    <lastmod>2025-12-07T20:06:00.000Z</lastmod>
-  </url><url>
-    <loc>https://https://bobona.github.io/notes/Undergrad/Numerical-Methods/Floating-Point-Numbers</loc>
-    <lastmod>2025-12-07T20:06:00.000Z</lastmod>
-  </url><url>
-    <loc>https://https://bobona.github.io/notes/Undergrad/Numerical-Methods/</loc>
-    <lastmod>2025-12-07T20:03:00.000Z</lastmod>
-  </url><url>
-    <loc>https://https://bobona.github.io/notes/Undergrad/Numerical-Methods/Introduction</loc>
-    <lastmod>2025-12-07T20:06:00.000Z</lastmod>
-  </url><url>
-    <loc>https://https://bobona.github.io/notes/Undergrad/Numerical-Methods/Lagrange-Interpolation</loc>
-    <lastmod>2025-12-07T20:06:00.000Z</lastmod>
-  </url><url>
-    <loc>https://https://bobona.github.io/notes/Undergrad/Numerical-Methods/Linear-Systems</loc>
-    <lastmod>2025-12-07T20:06:00.000Z</lastmod>
-  </url><url>
-    <loc>https://https://bobona.github.io/notes/Undergrad/Numerical-Methods/Non-Linear-Equations</loc>
-    <lastmod>2025-12-07T20:06:00.000Z</lastmod>
   </url><url>
     <loc>https://https://bobona.github.io/notes/Undergrad/Probability/Analyzing-Quick-Sort</loc>
     <lastmod>2025-12-07T15:12:00.000Z</lastmod>
@@ -254,6 +254,21 @@
     <loc>https://https://bobona.github.io/notes/Undergrad/Time-Series-and-Dynamic-Econometrics/Time-Series</loc>
     <lastmod>2025-12-07T19:07:00.000Z</lastmod>
   </url><url>
+    <loc>https://https://bobona.github.io/notes/Undergrad/Advanced-Data-Systems/Assignments/Adaptive-Radix-Tree-Review</loc>
+    <lastmod>2025-12-07T20:33:00.000Z</lastmod>
+  </url><url>
+    <loc>https://https://bobona.github.io/notes/Undergrad/Advanced-Data-Systems/Assignments/CliffGuard-Review</loc>
+    <lastmod>2025-12-07T20:32:00.000Z</lastmod>
+  </url><url>
+    <loc>https://https://bobona.github.io/notes/Undergrad/Advanced-Data-Systems/Assignments/</loc>
+    <lastmod>2025-12-07T20:28:00.000Z</lastmod>
+  </url><url>
+    <loc>https://https://bobona.github.io/notes/Undergrad/Advanced-Data-Systems/Assignments/Indexing-for-Near-Sorted-Data-Review</loc>
+    <lastmod>2025-12-07T20:33:00.000Z</lastmod>
+  </url><url>
+    <loc>https://https://bobona.github.io/notes/Undergrad/Advanced-Data-Systems/Assignments/Technical-Questions</loc>
+    <lastmod>2025-12-07T20:36:00.000Z</lastmod>
+  </url><url>
     <loc>https://https://bobona.github.io/notes/Undergrad/Advanced-Data-Systems/Adaptive-Data-Layouts</loc>
     <lastmod>2025-12-07T20:22:00.000Z</lastmod>
   </url><url>
@@ -304,19 +319,4 @@
   </url><url>
     <loc>https://https://bobona.github.io/notes/Undergrad/Distributed-Systems/ZooKeeper</loc>
     <lastmod>2025-12-07T21:23:00.000Z</lastmod>
-  </url><url>
-    <loc>https://https://bobona.github.io/notes/Undergrad/Advanced-Data-Systems/Assignments/Adaptive-Radix-Tree-Review</loc>
-    <lastmod>2025-12-07T20:33:00.000Z</lastmod>
-  </url><url>
-    <loc>https://https://bobona.github.io/notes/Undergrad/Advanced-Data-Systems/Assignments/CliffGuard-Review</loc>
-    <lastmod>2025-12-07T20:32:00.000Z</lastmod>
-  </url><url>
-    <loc>https://https://bobona.github.io/notes/Undergrad/Advanced-Data-Systems/Assignments/</loc>
-    <lastmod>2025-12-07T20:28:00.000Z</lastmod>
-  </url><url>
-    <loc>https://https://bobona.github.io/notes/Undergrad/Advanced-Data-Systems/Assignments/Indexing-for-Near-Sorted-Data-Review</loc>
-    <lastmod>2025-12-07T20:33:00.000Z</lastmod>
-  </url><url>
-    <loc>https://https://bobona.github.io/notes/Undergrad/Advanced-Data-Systems/Assignments/Technical-Questions</loc>
-    <lastmod>2025-12-07T20:36:00.000Z</lastmod>
   </url></urlset>
