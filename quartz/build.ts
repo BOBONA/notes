@@ -84,7 +84,7 @@ async function buildQuartz(argv: Argv, mut: Mutex, clientRefresh: () => void) {
   let filteredFiles = await filterContent(ctx, allFiles)
 
   if (cfg.configuration.useVirtualPaths) {
-    const virtualPathMap = getVirtualPathMap(filteredFiles)
+    const virtualPathMap = await getVirtualPathMap(ctx, filteredFiles)
     ctx.virtualPathMap = virtualPathMap
     ctx.physicalToVirtualMap = new Map(
       Array.from(virtualPathMap.entries()).map(([physical, virtual]) => [virtual, physical]),
@@ -290,7 +290,7 @@ async function rebuild(changes: ChangeEvent[], clientRefresh: () => void, buildD
   let filteredFiles = await filterContent(ctx, physicalPaths)
 
   if (cfg.configuration.useVirtualPaths) {
-    const virtualPathMap = getVirtualPathMap(filteredFiles)
+    const virtualPathMap = await getVirtualPathMap(ctx, filteredFiles)
     ctx.virtualPathMap = virtualPathMap
     ctx.physicalToVirtualMap = new Map(
       Array.from(virtualPathMap.entries()).map(([physical, virtual]) => [virtual, physical]),

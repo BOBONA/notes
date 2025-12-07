@@ -16,7 +16,7 @@ const config: QuartzConfig = {
     locale: "en-US",
     baseUrl: "bobona.github.io/notes/",
     ignorePatterns: ["private", "templates", ".obsidian"], 
-    useVirtualPaths: false,
+    useVirtualPaths: true,
     assetIgnorePatterns: ["!(public)/**"],
     defaultDateType: "modified",
     theme: {
