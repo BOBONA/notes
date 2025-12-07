@@ -14,7 +14,7 @@ const config: QuartzConfig = {
       provider: "plausible",
     },
     locale: "en-US",
-    baseUrl: "https://bobona.github.io/notes/",
+    baseUrl: "https://bobona.github.io/notes",
     ignorePatterns: ["private", "templates", ".obsidian"], 
     useVirtualPaths: true,
     assetIgnorePatterns: ["!(public)/**"],
@@ -100,7 +100,7 @@ const config: QuartzConfig = {
       Plugin.Static(),
       Plugin.Favicon(),
       Plugin.NotFoundPage(),
-      Plugin.CustomOgImages({ colorScheme: "darkMode" }),
+      // Plugin.CustomOgImages({ colorScheme: "darkMode" }),
     ],
   },
 }
