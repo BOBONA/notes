@@ -44,8 +44,22 @@ function resolvePath(basePath: FilePath, targetPath: string): FilePath {
   if (targetPath.startsWith('/')) {
     return targetPath.substring(1) as FilePath;
   }
-  
-  return resolveRelative(basePath.toString() as FullSlug, targetPath as SimpleSlug).toString() as FilePath;
+
+  const baseSegments = basePath.toString().split('/').filter(Boolean);
+
+  const targetSegments = targetPath.split('/').filter(Boolean);
+  const resolved: string[] = [...baseSegments];
+
+  for (const segment of targetSegments) {
+    if (segment === '.') continue;
+    if (segment === '..') {
+      if (resolved.length > 0) resolved.pop();
+      continue;
+    }
+    resolved.push(segment);
+  }
+
+  return resolved.join('/') as FilePath;
 }
 
 /**
@@ -62,25 +76,33 @@ async function resolveFiles(
   if (node.value !== '') {
     const frontmatterPath = node.isFile ? `${currentPath}/${node.value}` : `${currentPath}/${node.value}/index.md`;
 
+    let flatten = false;
+
     // check if frontmatterPath exists
     if (node.value !== 'index.md') {
       try {
         const { value } = await read(joinSegments(sourceDirectory, frontmatterPath));
         const { data } = matter(value.toString());
+
         if (data && data.path) {
-          let resolvedVirtualPath = resolvePath(currentPath as FilePath, data.path as string);
+          let resolvedVirtualPath = resolvePath(virtualPath as FilePath, data.path as string);
           if (resolvedVirtualPath.endsWith('/')) {
             resolvedVirtualPath = resolvedVirtualPath.slice(0, -1) as FilePath;
           }
           virtualPath = resolvedVirtualPath;
         }
+
+        flatten = data && data.flatten && !node.isFile;
       } catch (e) {
         // file does not exist, ignore
       }
     }
 
     currentPath = currentPath ? `${currentPath}/${node.value}` : node.value;
-    virtualPath = virtualPath ? `${virtualPath}/${node.value}` : node.value;
+
+    if (!flatten) {
+      virtualPath = virtualPath ? `${virtualPath}/${node.value}` : node.value;
+    }
   }
 
   if (node.isFile && node.value) {
@@ -97,7 +119,7 @@ async function resolveFiles(
     return;
   }
 
-  for (const [, childNode] of node.children) {    
+  for (const [, childNode] of node.children) {  
     await resolveFiles(sourceDirectory, childNode, currentPath, virtualPath, virtualPathMap, claimedVirtualPaths);
   }
 }
