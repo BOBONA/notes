@@ -67,6 +67,8 @@ export interface GlobalConfiguration {
   analytics: Analytics
   /** Glob patterns to not search */
   ignorePatterns: string[]
+  /** Use virtual paths */
+  useVirtualPaths?: boolean
   /** Glob patterns to not search assets */
   assetIgnorePatterns?: string[]
   /** Whether to use created, modified, or published as the default type of date */

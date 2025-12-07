@@ -113,7 +113,6 @@ function createFolderNode(
   folderContainer.dataset.folderpath = folderPath
 
   if (opts.folderClickBehavior === "link") {
-    // Replace button with link for link behavior
     const button = titleContainer.querySelector(".folder-button") as HTMLElement
     const a = document.createElement("a")
     a.href = resolveRelative(currentSlug, folderPath)

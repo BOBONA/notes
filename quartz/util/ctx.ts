@@ -27,6 +27,8 @@ export interface BuildCtx {
   cfg: QuartzConfig
   allSlugs: FullSlug[]
   allFiles: FilePath[]
+  virtualPathMap?: Map<FilePath, FilePath>
+  physicalToVirtualMap?: Map<FilePath, FilePath>
   trie?: FileTrieNode<BuildTimeTrieData>
   incremental: boolean
 }

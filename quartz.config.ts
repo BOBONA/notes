@@ -14,8 +14,9 @@ const config: QuartzConfig = {
       provider: "plausible",
     },
     locale: "en-US",
-    baseUrl: "https://bobona.github.io/notes/",
+    baseUrl: "bobona.github.io/notes/",
     ignorePatterns: ["private", "templates", ".obsidian"], 
+    useVirtualPaths: false,
     assetIgnorePatterns: ["!(public)/**"],
     defaultDateType: "modified",
     theme: {

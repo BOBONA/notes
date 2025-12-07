@@ -3,6 +3,7 @@ import { Repository } from "@napi-rs/simple-git"
 import { QuartzTransformerPlugin } from "../types"
 import path from "path"
 import { styleText } from "util"
+import { FilePath, joinSegments } from "../../util/path"
 
 export interface Options {
   priority: ("frontmatter" | "git" | "filesystem")[]
@@ -68,9 +69,12 @@ export const CreatedModifiedDate: QuartzTransformerPlugin<Partial<Options>> = (u
 
             const fp = file.data.relativePath!
             const fullFp = file.data.filePath!
+            let physicalPath = ctx.cfg.configuration.useVirtualPaths ?
+              ctx.physicalToVirtualMap?.get(fullFp) ?? fullFp : fullFp
+            physicalPath = joinSegments(ctx.argv.directory, physicalPath) as FilePath
             for (const source of opts.priority) {
               if (source === "filesystem") {
-                const st = await fs.promises.stat(fullFp)
+                const st = await fs.promises.stat(physicalPath)
                 created ||= st.birthtimeMs
                 modified ||= st.mtimeMs
               } else if (source === "frontmatter" && file.data.frontmatter) {
@@ -79,7 +83,7 @@ export const CreatedModifiedDate: QuartzTransformerPlugin<Partial<Options>> = (u
                 published ||= file.data.frontmatter.published as MaybeDate
               } else if (source === "git" && repo) {
                 try {
-                  const relativePath = path.relative(repositoryWorkdir, fullFp)
+                  const relativePath = path.relative(repositoryWorkdir, physicalPath)
                   modified ||= await repo.getFileLatestModifiedDateAsync(relativePath)
                 } catch {
                   console.log(

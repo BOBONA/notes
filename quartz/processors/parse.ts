@@ -7,7 +7,7 @@ import { Root as HTMLRoot } from "hast"
 import { MarkdownContent, ProcessedContent } from "../plugins/vfile"
 import { PerfTimer } from "../util/perf"
 import { read } from "to-vfile"
-import { FilePath, QUARTZ, slugifyFilePath } from "../util/path"
+import { FilePath, joinSegments, QUARTZ, slugifyFilePath } from "../util/path"
 import path from "path"
 import workerpool, { Promise as WorkerPromise } from "workerpool"
 import { QuartzLogger } from "../util/log"
@@ -89,7 +89,11 @@ export function createFileParser(ctx: BuildCtx, fps: FilePath[]) {
     for (const fp of fps) {
       try {
         const perf = new PerfTimer()
-        const file = await read(fp)
+
+        let filePath = ctx.cfg.configuration.useVirtualPaths ? ctx.physicalToVirtualMap?.get(fp) ?? fp : fp        
+        filePath = joinSegments(argv.directory, filePath) as FilePath
+
+        const file = await read(filePath)
 
         // strip leading and trailing whitespace
         file.value = file.value.toString().trim()
@@ -100,8 +104,9 @@ export function createFileParser(ctx: BuildCtx, fps: FilePath[]) {
         }
 
         // base data properties that plugins may use
-        file.data.filePath = file.path as FilePath
-        file.data.relativePath = path.posix.relative(argv.directory, file.path) as FilePath
+        file.data.filePath = fp
+        file.data.relativePath = ctx.cfg.configuration.useVirtualPaths ? 
+          fp : path.posix.relative(argv.directory, filePath) as FilePath
         file.data.slug = slugifyFilePath(file.data.relativePath)
 
         const ast = processor.parse(file)

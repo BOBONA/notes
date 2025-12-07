@@ -9,7 +9,7 @@ import { parseMarkdown } from "./processors/parse"
 import { filterContent } from "./processors/filter"
 import { emitContent } from "./processors/emit"
 import cfg from "../quartz.config"
-import { FilePath, joinSegments, slugifyFilePath } from "./util/path"
+import { FilePath, slugifyFilePath } from "./util/path"
 import chokidar from "chokidar"
 import { ProcessedContent } from "./plugins/vfile"
 import { Argv, BuildCtx } from "./util/ctx"
@@ -21,6 +21,7 @@ import { getStaticResourcesFromPlugins } from "./plugins"
 import { randomIdNonSecure } from "./util/random"
 import { ChangeEvent } from "./plugins/types"
 import { minimatch } from "minimatch"
+import { getVirtualPathMap } from "./util/virtualPaths"
 
 type ContentMap = Map<
   FilePath,
@@ -80,14 +81,22 @@ async function buildQuartz(argv: Argv, mut: Mutex, clientRefresh: () => void) {
     `Found ${markdownPaths.length} input files from \`${argv.directory}\` in ${perf.timeSince("glob")}`,
   )
 
-  const filteredFiles = await filterContent(ctx, allFiles)
+  let filteredFiles = await filterContent(ctx, allFiles)
+
+  if (cfg.configuration.useVirtualPaths) {
+    const virtualPathMap = getVirtualPathMap(filteredFiles)
+    ctx.virtualPathMap = virtualPathMap
+    ctx.physicalToVirtualMap = new Map(
+      Array.from(virtualPathMap.entries()).map(([physical, virtual]) => [virtual, physical]),
+    )
+    filteredFiles = filteredFiles.filter((fp) => virtualPathMap.has(fp)).map((fp) => virtualPathMap.get(fp)!)
+  }
 
   ctx.allFiles = filteredFiles
   ctx.allSlugs = filteredFiles.map((fp) => slugifyFilePath(fp as FilePath))
 
   const filteredMarkdownPaths = filteredFiles
     .filter((fp) => fp.endsWith(".md"))
-    .map((fp) => joinSegments(argv.directory, fp) as FilePath)
 
   const parsedFiles = await parseMarkdown(ctx, filteredMarkdownPaths)
 
@@ -189,7 +198,8 @@ async function startWatching(
 }
 
 async function rebuild(changes: ChangeEvent[], clientRefresh: () => void, buildData: BuildData) {
-  const { ctx, contentMap, mut, changesSinceLastBuild } = buildData
+  const { ctx, contentMap, mut } = buildData
+  let changesSinceLastBuild: Record<FilePath, ChangeEvent["type"]> = {}
   const { argv, cfg } = ctx
 
   const buildId = randomIdNonSecure()
@@ -210,15 +220,19 @@ async function rebuild(changes: ChangeEvent[], clientRefresh: () => void, buildD
 
   // update changesSinceLastBuild
   for (const change of changes) {
-    changesSinceLastBuild[change.path] = change.type
+    let path = change.path
+    if (cfg.configuration.useVirtualPaths) {
+      path = ctx.virtualPathMap?.get(change.path) ?? change.path
+    }
+    changesSinceLastBuild[path] = change.type
   }
 
   const staticResources = getStaticResourcesFromPlugins(ctx)
   const pathsToParse: FilePath[] = []
   for (const [fp, type] of Object.entries(changesSinceLastBuild)) {
     if (type === "delete" || path.extname(fp) !== ".md") continue
-    const fullPath = joinSegments(argv.directory, toPosixPath(fp)) as FilePath
-    pathsToParse.push(fullPath)
+    let filePath = toPosixPath(fp) as FilePath
+    pathsToParse.push(filePath)
   }
 
   const parsed = await parseMarkdown(ctx, pathsToParse)
@@ -266,18 +280,33 @@ async function rebuild(changes: ChangeEvent[], clientRefresh: () => void, buildD
   })
 
   // update allFiles and then allSlugs with the consistent view of content map
-  const allPaths = Array.from(contentMap.keys())
-  const filteredPaths = await filterContent(ctx, allPaths)
+  const physicalPaths = Array.from(contentMap.keys()).map((fp) => {
+    if (cfg.configuration.useVirtualPaths) {
+      return ctx.physicalToVirtualMap?.get(fp)
+    }
+    return fp
+  }).filter((fp): fp is FilePath => fp !== undefined)
 
-  ctx.allFiles = filteredPaths
-  ctx.allSlugs = filteredPaths.map(fp => slugifyFilePath(fp))
+  let filteredFiles = await filterContent(ctx, physicalPaths)
 
-  const processedFiles = filteredPaths
+  if (cfg.configuration.useVirtualPaths) {
+    const virtualPathMap = getVirtualPathMap(filteredFiles)
+    ctx.virtualPathMap = virtualPathMap
+    ctx.physicalToVirtualMap = new Map(
+      Array.from(virtualPathMap.entries()).map(([physical, virtual]) => [virtual, physical]),
+    )
+    filteredFiles = filteredFiles.filter((fp) => virtualPathMap.has(fp)).map((fp) => virtualPathMap.get(fp)!)
+  }
+
+  ctx.allFiles = filteredFiles
+  ctx.allSlugs = filteredFiles.map(fp => slugifyFilePath(fp))
+
+  const processedFiles = filteredFiles
     .filter(fp => fp.endsWith(".md"))
     .map(fp => contentMap.get(fp)!)
     .filter(entry => entry.type === "markdown")
     .map(entry => entry.content)
-
+  
   let emittedFiles = 0
   for (const emitter of cfg.plugins.emitters) {
     // Try to use partialEmit if available, otherwise assume the output is static

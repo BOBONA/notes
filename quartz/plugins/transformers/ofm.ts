@@ -222,13 +222,22 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
               wikilinkRegex,
               (value: string, ...capture: string[]) => {
                 let [rawFp, rawHeader, rawAlias] = capture
-                const fp = rawFp?.trim() ?? ""
+                let fp = rawFp?.trim() ?? ""
                 const anchor = rawHeader?.trim() ?? ""
                 const alias: string | undefined = rawAlias?.slice(1).trim()
 
+                const ext: string = path.extname(fp).toLowerCase()
+
+                if (ctx.cfg.configuration.useVirtualPaths) {
+                  if (ext === "") {
+                    fp += ".md"
+                  }
+
+                  fp = ctx.virtualPathMap?.get(fp as FilePath) ?? fp
+                }
+
                 // embed cases
                 if (value.startsWith("!")) {
-                  const ext: string = path.extname(fp).toLowerCase()
                   const url = slugifyFilePath(fp as FilePath)
                   if ([".png", ".jpg", ".jpeg", ".gif", ".bmp", ".svg", ".webp"].includes(ext)) {
                     const match = wikilinkImageEmbedRegex.exec(alias ?? "")
@@ -282,6 +291,7 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
                   const slug = slugifyFilePath(fp as FilePath)
                   const exists = ctx.allSlugs && ctx.allSlugs.includes(slug)
                   if (!exists) {
+                    fp = fp.replace(/\.md$/, "")
                     return {
                       type: "html",
                       value: `<a class=\"internal broken\">${alias ?? fp}</a>`,
