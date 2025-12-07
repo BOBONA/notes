@@ -6,53 +6,65 @@
       <description>Last 10 notes on Binyamin&#039;s Notes</description>
       <generator>Quartz -- quartz.jzhao.xyz</generator>
       <item>
-    <title>Hypothesis Testing</title>
-    <link>https://bobona.github.io/notes/Courses/Statistics/Hypothesis-Testing</link>
-    <guid>https://bobona.github.io/notes/Courses/Statistics/Hypothesis-Testing</guid>
-    <description><![CDATA[ Hypothesis testing aims to choose between a null hypothesis H_{0} and an alternative hypothesis H_{1} A function of the observed data who dictates the outcome of our hypothesis is called a test statistic. ]]></description>
-    <pubDate>Sun, 07 Dec 2025 16:47:00 GMT</pubDate>
+    <title>Firing-Rate Models</title>
+    <link>https://bobona.github.io/notes/Undergrad/Computational-Neuroscience/Firing-Rate-Models</link>
+    <guid>https://bobona.github.io/notes/Undergrad/Computational-Neuroscience/Firing-Rate-Models</guid>
+    <description><![CDATA[ Firing-rate models simplify neuron dynamics by considering firing-rate as the main representation of information processing in the brain. ]]></description>
+    <pubDate>Sun, 07 Dec 2025 21:35:00 GMT</pubDate>
   </item><item>
-    <title>Expectation</title>
-    <link>https://bobona.github.io/notes/Courses/Probability/Expectation</link>
-    <guid>https://bobona.github.io/notes/Courses/Probability/Expectation</guid>
-    <description><![CDATA[ Recall, the expected value of a random variable X is E[X]=\sum_{x}^{}xp(x) if X is discrete and E[X]=\int_{-\infty}^{\infty}xf(x) \, dx if X is continuous If P\{ a\leq X\leq b \}=1 for some a and b then a\leq E[X]\leq b If X and Y have a joint probability mass function p(x,y) then E[g(X,Y)]=\sum_{y}... ]]></description>
-    <pubDate>Sun, 07 Dec 2025 16:33:00 GMT</pubDate>
+    <title>Spike Trains</title>
+    <link>https://bobona.github.io/notes/Undergrad/Computational-Neuroscience/Spike-Trains</link>
+    <guid>https://bobona.github.io/notes/Undergrad/Computational-Neuroscience/Spike-Trains</guid>
+    <description><![CDATA[ Action potentials, or spikes, are the main unit of information transfer in our brains. ]]></description>
+    <pubDate>Sun, 07 Dec 2025 21:35:00 GMT</pubDate>
   </item><item>
-    <title>Probability</title>
-    <link>https://bobona.github.io/notes/Courses/Probability/</link>
-    <guid>https://bobona.github.io/notes/Courses/Probability/</guid>
-    <description><![CDATA[ Overview. ]]></description>
-    <pubDate>Sun, 07 Dec 2025 15:49:00 GMT</pubDate>
+    <title>Conductance-Based Models</title>
+    <link>https://bobona.github.io/notes/Undergrad/Computational-Neuroscience/Conductance-Based-Models</link>
+    <guid>https://bobona.github.io/notes/Undergrad/Computational-Neuroscience/Conductance-Based-Models</guid>
+    <description><![CDATA[ The Hodgkin-Huxley Model Alan Hodgkin and Andrew Huxley published a series of five papers in 1952, detailing a model for the generation and propagation of the active potential by active sodium and potassium channels. ]]></description>
+    <pubDate>Sun, 07 Dec 2025 21:34:00 GMT</pubDate>
   </item><item>
-    <title>Analyzing Quick-Sort</title>
-    <link>https://bobona.github.io/notes/Courses/Probability/Analyzing-Quick-Sort</link>
-    <guid>https://bobona.github.io/notes/Courses/Probability/Analyzing-Quick-Sort</guid>
-    <description><![CDATA[ Suppose that we want to sort x_{1},x_{2},\dots,x_{n}. ]]></description>
-    <pubDate>Sun, 07 Dec 2025 15:12:00 GMT</pubDate>
+    <title>Learning and Plasticity</title>
+    <link>https://bobona.github.io/notes/Undergrad/Computational-Neuroscience/Learning-and-Plasticity</link>
+    <guid>https://bobona.github.io/notes/Undergrad/Computational-Neuroscience/Learning-and-Plasticity</guid>
+    <description><![CDATA[ Hebbian plasticity Hebbian plasticity is a change in synaptic strength produced by a positive correlation between presynaptic and postsynaptic spikes The mechanisms generally depend on an increase in calcium concentration within the postsynaptic cell in the vicinity of the synapse, either through ca... ]]></description>
+    <pubDate>Sun, 07 Dec 2025 21:32:00 GMT</pubDate>
   </item><item>
-    <title>Overview</title>
-    <link>https://bobona.github.io/notes/Courses/Statistics/Overview</link>
-    <guid>https://bobona.github.io/notes/Courses/Statistics/Overview</guid>
-    <description><![CDATA[ The professor is Shahriar Mirzadeh This class extends the concepts covered in Probability with more advanced topics Example: Flipping an unfair coin, where P(X=1)=p if a head is flipped Then P(X=0)=1-p I.e. ]]></description>
-    <pubDate>Sat, 06 Dec 2025 19:55:00 GMT</pubDate>
+    <title>Population Data</title>
+    <link>https://bobona.github.io/notes/Undergrad/Computational-Neuroscience/Population-Data</link>
+    <guid>https://bobona.github.io/notes/Undergrad/Computational-Neuroscience/Population-Data</guid>
+    <description><![CDATA[ Principle Component Analysis This course has mostly covered small networks and single neurons because these are the easiest to understand. ]]></description>
+    <pubDate>Sun, 07 Dec 2025 21:32:00 GMT</pubDate>
   </item><item>
-    <title>Statistics</title>
-    <link>https://bobona.github.io/notes/Courses/Statistics/</link>
-    <guid>https://bobona.github.io/notes/Courses/Statistics/</guid>
-    <description><![CDATA[ Overview. ]]></description>
-    <pubDate>Sat, 06 Dec 2025 19:54:00 GMT</pubDate>
+    <title>Preliminary Information</title>
+    <link>https://bobona.github.io/notes/Undergrad/Computational-Neuroscience/Preliminary-Information</link>
+    <guid>https://bobona.github.io/notes/Undergrad/Computational-Neuroscience/Preliminary-Information</guid>
+    <description><![CDATA[ General Background Nearly all of single neuron modeling revolves around calculating causes and effects of the action potential Definition: The membrane potential V_{m} is the highly variable potential difference across the cell’s membrane The key to modeling is ordinary differential equations which ... ]]></description>
+    <pubDate>Sun, 07 Dec 2025 21:32:00 GMT</pubDate>
   </item><item>
-    <title>Home</title>
-    <link>https://bobona.github.io/notes/</link>
-    <guid>https://bobona.github.io/notes/</guid>
-    <description><![CDATA[ This site is a collection of technical notes, write ups, and other thoughts. I will be updating this irregularly. This is not a portfolio. ]]></description>
-    <pubDate>Sat, 06 Dec 2025 18:06:00 GMT</pubDate>
+    <title>Connections between Neurons</title>
+    <link>https://bobona.github.io/notes/Undergrad/Computational-Neuroscience/Connections-between-Neurons</link>
+    <guid>https://bobona.github.io/notes/Undergrad/Computational-Neuroscience/Connections-between-Neurons</guid>
+    <description><![CDATA[ While a single neuron is quite powerful, the real magic begins once multiple neurons begin to influence each other. ]]></description>
+    <pubDate>Sun, 07 Dec 2025 21:31:00 GMT</pubDate>
   </item><item>
-    <title>Overview</title>
-    <link>https://bobona.github.io/notes/Courses/Probability/Overview</link>
-    <guid>https://bobona.github.io/notes/Courses/Probability/Overview</guid>
-    <description><![CDATA[ Probability is cool! Cause humans are bad at it without math For this class, we have to do the reading ahead of time, since Keith does not lecture. ]]></description>
-    <pubDate>Fri, 05 Dec 2025 16:46:00 GMT</pubDate>
+    <title>Dynamical Systems</title>
+    <link>https://bobona.github.io/notes/Undergrad/Computational-Neuroscience/Dynamical-Systems</link>
+    <guid>https://bobona.github.io/notes/Undergrad/Computational-Neuroscience/Dynamical-Systems</guid>
+    <description><![CDATA[ Dynamical Systems Dynamical systems have been the subject of much of this book, systems in which variables can change in time. ]]></description>
+    <pubDate>Sun, 07 Dec 2025 21:31:00 GMT</pubDate>
+  </item><item>
+    <title>Computational Neuroscience</title>
+    <link>https://bobona.github.io/notes/Undergrad/Computational-Neuroscience/</link>
+    <guid>https://bobona.github.io/notes/Undergrad/Computational-Neuroscience/</guid>
+    <description><![CDATA[ This course was taught by Paul Miller from his own textbook. I am not a neuroscience major, but I took this freshman year and enjoyed it a lot. ]]></description>
+    <pubDate>Sun, 07 Dec 2025 21:30:00 GMT</pubDate>
+  </item><item>
+    <title>Entity-Relationship Modeling</title>
+    <link>https://bobona.github.io/notes/Undergrad/Database-Management-Systems/Entity-Relationship-Modeling</link>
+    <guid>https://bobona.github.io/notes/Undergrad/Database-Management-Systems/Entity-Relationship-Modeling</guid>
+    <description><![CDATA[ Data model: A collection of concepts that allows us to translate real-world constructs into computer-understandable structures Relation, entity-relationship, key-value, graph, time series, document… Proper modeling is difficult Requirements analysis Conceptual design, often using an ER model Logical... ]]></description>
+    <pubDate>Sun, 07 Dec 2025 21:27:00 GMT</pubDate>
   </item>
     </channel>
   </rss>
