@@ -6,65 +6,65 @@
       <description>Last 10 notes on Binyamin&#039;s Notes</description>
       <generator>Quartz -- quartz.jzhao.xyz</generator>
       <item>
-    <title>Differential Equations</title>
-    <link>https://https://bobona.github.io/notes/Undergrad/Numerical-Methods/Differential-Equations</link>
-    <guid>https://https://bobona.github.io/notes/Undergrad/Numerical-Methods/Differential-Equations</guid>
-    <description><![CDATA[ Say we have f:[a,b]\to \mathbb{R}, how do we approximate f&#039;(x)? Of course we need Taylor’s theorem! Suppose f \in C^{n_{1}}([a,b]), for any x,y \in [a,b] such that x+y \in [a,b) we have f(x+y)=f(x)+f&#039;(x)y+\frac{f&#039;&#039;(x)}{2}y^{2}+\dots+\frac{f^{(n)}(x)}{n!}y^n+\frac{f^{(n+1)}(\xi(x,... ]]></description>
-    <pubDate>Wed, 10 Dec 2025 19:47:00 GMT</pubDate>
+    <title>Optimal Stopping</title>
+    <link>https://https://bobona.github.io/notes/Undergrad/Stochastic-Processes-and-Applications/Optimal-Stopping</link>
+    <guid>https://https://bobona.github.io/notes/Undergrad/Stochastic-Processes-and-Applications/Optimal-Stopping</guid>
+    <description><![CDATA[ Example: Imagine a player keeps rolling a die until they either stop or roll a 6. Their score is the last die they’ve rolled, or 0 if they rolled a 6. ]]></description>
+    <pubDate>Sat, 03 Jan 2026 05:38:00 GMT</pubDate>
   </item><item>
-    <title>Firing-Rate Models</title>
-    <link>https://https://bobona.github.io/notes/Undergrad/Computational-Neuroscience/Firing-Rate-Models</link>
-    <guid>https://https://bobona.github.io/notes/Undergrad/Computational-Neuroscience/Firing-Rate-Models</guid>
-    <description><![CDATA[ Firing-rate models simplify neuron dynamics by considering firing-rate as the main representation of information processing in the brain. ]]></description>
-    <pubDate>Sun, 07 Dec 2025 21:35:00 GMT</pubDate>
+    <title>Martingales</title>
+    <link>https://https://bobona.github.io/notes/Undergrad/Stochastic-Processes-and-Applications/Martingales</link>
+    <guid>https://https://bobona.github.io/notes/Undergrad/Stochastic-Processes-and-Applications/Martingales</guid>
+    <description><![CDATA[ Conditional Expectation Suppose f(x,y)=\mathbb{P}\{ X=x,Y=y \}, f_{X}(x)=\sum_{y}^{}f(x,y), and \sum_{x}^{}f(x,y) We define E(Y\mid X)(x)=\frac{\sum_{y}^{}yf(x,y)}{f_{X}(x)} If X_{1},\dots,X_{n},Y have a joint probability density function f, and g(x_{1},\dots,x_{n})=\sum_{y}^{}f(x_{1},\dots,x_{n},y)... ]]></description>
+    <pubDate>Sat, 03 Jan 2026 05:37:00 GMT</pubDate>
   </item><item>
-    <title>Spike Trains</title>
-    <link>https://https://bobona.github.io/notes/Undergrad/Computational-Neuroscience/Spike-Trains</link>
-    <guid>https://https://bobona.github.io/notes/Undergrad/Computational-Neuroscience/Spike-Trains</guid>
-    <description><![CDATA[ Action potentials, or spikes, are the main unit of information transfer in our brains. ]]></description>
-    <pubDate>Sun, 07 Dec 2025 21:35:00 GMT</pubDate>
+    <title>Stochastic Processes</title>
+    <link>https://https://bobona.github.io/notes/Undergrad/Stochastic-Processes-and-Applications/</link>
+    <guid>https://https://bobona.github.io/notes/Undergrad/Stochastic-Processes-and-Applications/</guid>
+    <description><![CDATA[ The mathematical objects introduced here are super cool and have many neat applications. ]]></description>
+    <pubDate>Sat, 03 Jan 2026 05:36:00 GMT</pubDate>
   </item><item>
-    <title>Conductance-Based Models</title>
-    <link>https://https://bobona.github.io/notes/Undergrad/Computational-Neuroscience/Conductance-Based-Models</link>
-    <guid>https://https://bobona.github.io/notes/Undergrad/Computational-Neuroscience/Conductance-Based-Models</guid>
-    <description><![CDATA[ The Hodgkin-Huxley Model Alan Hodgkin and Andrew Huxley published a series of five papers in 1952, detailing a model for the generation and propagation of the active potential by active sodium and potassium channels. ]]></description>
-    <pubDate>Sun, 07 Dec 2025 21:34:00 GMT</pubDate>
+    <title>Finite Markov Chains</title>
+    <link>https://https://bobona.github.io/notes/Undergrad/Stochastic-Processes-and-Applications/Finite-Markov-Chains</link>
+    <guid>https://https://bobona.github.io/notes/Undergrad/Stochastic-Processes-and-Applications/Finite-Markov-Chains</guid>
+    <description><![CDATA[ A discrete-time stochastic process is made up of X_{n} for n=0,1,2,\dots, where X_{n} takes on values in a finite set The possible values for X_{n} are the states of the system We can describe the probability of a process as \mathbb{P}\{ X_{0}=i_{0},X_{1}=i_{1},\dots,X_{n}=i_{n} \} or more expressiv... ]]></description>
+    <pubDate>Sat, 03 Jan 2026 05:34:00 GMT</pubDate>
   </item><item>
-    <title>Learning and Plasticity</title>
-    <link>https://https://bobona.github.io/notes/Undergrad/Computational-Neuroscience/Learning-and-Plasticity</link>
-    <guid>https://https://bobona.github.io/notes/Undergrad/Computational-Neuroscience/Learning-and-Plasticity</guid>
-    <description><![CDATA[ Hebbian plasticity Hebbian plasticity is a change in synaptic strength produced by a positive correlation between presynaptic and postsynaptic spikes The mechanisms generally depend on an increase in calcium concentration within the postsynaptic cell in the vicinity of the synapse, either through ca... ]]></description>
-    <pubDate>Sun, 07 Dec 2025 21:32:00 GMT</pubDate>
+    <title>Countable Markov Chains</title>
+    <link>https://https://bobona.github.io/notes/Undergrad/Stochastic-Processes-and-Applications/Countable-Markov-Chains</link>
+    <guid>https://https://bobona.github.io/notes/Undergrad/Stochastic-Processes-and-Applications/Countable-Markov-Chains</guid>
+    <description><![CDATA[ Definition: Unlike a finite Markov chain, a countable Markov chain can have a countably infinite state space (X_{n})_{n\geq 0}, X_{n}\in \mathbb{N},\mathbb{Z},\mathbb{Q} Conceptually, this is quite similar, however we now have situations where there are no boundaries Consider an infinite random walk... ]]></description>
+    <pubDate>Sat, 03 Jan 2026 05:32:00 GMT</pubDate>
   </item><item>
-    <title>Population Data</title>
-    <link>https://https://bobona.github.io/notes/Undergrad/Computational-Neuroscience/Population-Data</link>
-    <guid>https://https://bobona.github.io/notes/Undergrad/Computational-Neuroscience/Population-Data</guid>
-    <description><![CDATA[ Principle Component Analysis This course has mostly covered small networks and single neurons because these are the easiest to understand. ]]></description>
-    <pubDate>Sun, 07 Dec 2025 21:32:00 GMT</pubDate>
+    <title>Continuous-Time Countable Processes</title>
+    <link>https://https://bobona.github.io/notes/Undergrad/Stochastic-Processes-and-Applications/Continuous-Time-Countable-Processes</link>
+    <guid>https://https://bobona.github.io/notes/Undergrad/Stochastic-Processes-and-Applications/Continuous-Time-Countable-Processes</guid>
+    <description><![CDATA[ See Continuous-Time Discrete-State Processes and Countable Markov Chains for more background context Birth and Death We assign birth rates \lambda_{n\geq 0} and death rates \mu_{n&gt;0} P&#039;_{n}(t)=-(\mu_{n}+\lambda_{n})P_{n}(t)+\mu_{n+1}P_{n+1}(t)+\lambda_{n-1}P_{n-1}(t) p_{t}(m,n)=\mathbb{P}\{ ... ]]></description>
+    <pubDate>Sat, 03 Jan 2026 05:31:00 GMT</pubDate>
   </item><item>
-    <title>Preliminary Information</title>
-    <link>https://https://bobona.github.io/notes/Undergrad/Computational-Neuroscience/Preliminary-Information</link>
-    <guid>https://https://bobona.github.io/notes/Undergrad/Computational-Neuroscience/Preliminary-Information</guid>
-    <description><![CDATA[ General Background Nearly all of single neuron modeling revolves around calculating causes and effects of the action potential Definition: The membrane potential V_{m} is the highly variable potential difference across the cell’s membrane The key to modeling is ordinary differential equations which ... ]]></description>
-    <pubDate>Sun, 07 Dec 2025 21:32:00 GMT</pubDate>
+    <title>Brownian Motion</title>
+    <link>https://https://bobona.github.io/notes/Undergrad/Stochastic-Processes-and-Applications/Brownian-Motion</link>
+    <guid>https://https://bobona.github.io/notes/Undergrad/Stochastic-Processes-and-Applications/Brownian-Motion</guid>
+    <description><![CDATA[ While stochastic differential equations with jumps are continuous-time and continuous-state, they are not quite what you’d imagine as a continuous process Can we construct a process with independent and stationary increments that does not have state-dependent coefficients? Definition We start with a... ]]></description>
+    <pubDate>Sat, 03 Jan 2026 05:30:00 GMT</pubDate>
   </item><item>
-    <title>Connections between Neurons</title>
-    <link>https://https://bobona.github.io/notes/Undergrad/Computational-Neuroscience/Connections-between-Neurons</link>
-    <guid>https://https://bobona.github.io/notes/Undergrad/Computational-Neuroscience/Connections-between-Neurons</guid>
-    <description><![CDATA[ While a single neuron is quite powerful, the real magic begins once multiple neurons begin to influence each other. ]]></description>
-    <pubDate>Sun, 07 Dec 2025 21:31:00 GMT</pubDate>
+    <title>Stochastic Differential Equations</title>
+    <link>https://https://bobona.github.io/notes/Undergrad/Stochastic-Processes-and-Applications/Stochastic-Differential-Equations</link>
+    <guid>https://https://bobona.github.io/notes/Undergrad/Stochastic-Processes-and-Applications/Stochastic-Differential-Equations</guid>
+    <description><![CDATA[ For a more technical approach to the formulas introduced here, take a look at stochastic integration Consider a differential equation with changes at exponentially distributed intervals. ]]></description>
+    <pubDate>Sat, 03 Jan 2026 05:29:00 GMT</pubDate>
   </item><item>
-    <title>Dynamical Systems</title>
-    <link>https://https://bobona.github.io/notes/Undergrad/Computational-Neuroscience/Dynamical-Systems</link>
-    <guid>https://https://bobona.github.io/notes/Undergrad/Computational-Neuroscience/Dynamical-Systems</guid>
-    <description><![CDATA[ Dynamical Systems Dynamical systems have been the subject of much of this book, systems in which variables can change in time. ]]></description>
-    <pubDate>Sun, 07 Dec 2025 21:31:00 GMT</pubDate>
+    <title>Stochastic Integration</title>
+    <link>https://https://bobona.github.io/notes/Undergrad/Stochastic-Processes-and-Applications/Stochastic-Integration</link>
+    <guid>https://https://bobona.github.io/notes/Undergrad/Stochastic-Processes-and-Applications/Stochastic-Integration</guid>
+    <description><![CDATA[ What is a stochastic integral? Let X_{1},X_{2},\dots be independent random variables with \mathbb{P}\{ X_{i}=1 \}=\mathbb{P}\{ X_{i}=-1 \}= 1 / 2 and let S_{n} denote the simple random walk S_{n}=X_{1}+\dots+X_{n} Let \mathcal{F}_{n} denote the information contained in X_{1},\dots,X_{n} and let B_{n... ]]></description>
+    <pubDate>Sat, 03 Jan 2026 05:25:00 GMT</pubDate>
   </item><item>
-    <title>Computational Neuroscience</title>
-    <link>https://https://bobona.github.io/notes/Undergrad/Computational-Neuroscience/</link>
-    <guid>https://https://bobona.github.io/notes/Undergrad/Computational-Neuroscience/</guid>
-    <description><![CDATA[ This course was taught by Paul Miller from his own textbook. I am not a neuroscience major, but I took this freshman year and enjoyed it a lot. ]]></description>
-    <pubDate>Sun, 07 Dec 2025 21:30:00 GMT</pubDate>
+    <title>Continuous-Time Discrete-State Processes</title>
+    <link>https://https://bobona.github.io/notes/Undergrad/Stochastic-Processes-and-Applications/Continuous-Time-Discrete-State-Processes</link>
+    <guid>https://https://bobona.github.io/notes/Undergrad/Stochastic-Processes-and-Applications/Continuous-Time-Discrete-State-Processes</guid>
+    <description><![CDATA[ Poisson Processes Many scenarios are natural continuous-time discrete-state processes. Consider modeling the number of people waiting for the bus. ]]></description>
+    <pubDate>Sat, 03 Jan 2026 05:16:00 GMT</pubDate>
   </item>
     </channel>
   </rss>
